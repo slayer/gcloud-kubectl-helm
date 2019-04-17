@@ -36,3 +36,4 @@ RUN helm init --client-only
 RUN mkdir -p /tmp
 RUN helm plugin install https://github.com/viglesiasce/helm-gcs.git
 RUN helm plugin install https://github.com/databus23/helm-diff
+ADD slack.json /

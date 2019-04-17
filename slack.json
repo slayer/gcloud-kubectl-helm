@@ -1,0 +1,31 @@
+{
+  "attachments": [
+    {
+      "color": "good",
+      "title": "Deploy",
+      "fields": [
+        {
+          "title": "Pipeline",
+          "value": "${CI_PROJECT_URL}/pipelines/${CI_PIPELINE_ID}",
+          "short": true
+        },
+        {
+          "title": "Branch",
+          "value": "${CI_COMMIT_REF_NAME}",
+          "short": true
+        },
+        {
+          "title": "Commit",
+          "value": "${CI_COMMIT_SHORT_SHA}",
+          "short": true
+        },
+        {
+          "title": "User",
+          "value": "${GITLAB_USER_EMAIL}",
+          "short": true
+        }
+      ],
+      "fallback": "text"
+    }
+  ]
+}

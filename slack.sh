@@ -1,4 +1,8 @@
+#!/bin/sh
+
+cat <<EOF | envsubst | curl -X POST -H 'Content-type: application/json' -d@- ${SLACK_WEBHOOK_URL}
 {
+  "username": "${CI_PROJECT_NAME}-deployer",
   "attachments": [
     {
       "color": "good",
@@ -7,6 +11,16 @@
         {
           "title": "Pipeline",
           "value": "${CI_PROJECT_URL}/pipelines/${CI_PIPELINE_ID}",
+          "short": false
+        },
+        {
+          "title": "Job url",
+          "value": "${CI_PROJECT_URL}/-/jobs/${CI_JOB_ID}",
+          "short": false
+        },
+        {
+          "title": "Job",
+          "value": "${CI_JOB_NAME}",
           "short": true
         },
         {
@@ -29,3 +43,5 @@
     }
   ]
 }
+EOF
+

@@ -2,11 +2,11 @@ all: build
 
 DOCKER_IMAGE = umongous/gcloud-kubectl-helm
 
-# shoutcuts
-push: docker-push
-build: #### build docker image
+build:
 	docker build -t $(DOCKER_IMAGE) .
 
-push: #### push docker image
+push:
 	docker push $(DOCKER_IMAGE)
 
+run: build
+	docker run -it $(DOCKER_IMAGE) /bin/sh

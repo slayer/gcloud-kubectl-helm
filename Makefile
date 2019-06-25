@@ -9,4 +9,5 @@ push:
 	docker push $(DOCKER_IMAGE)
 
 run: build
-	docker run -it $(DOCKER_IMAGE) /bin/sh
+	docker run -it --rm $(DOCKER_IMAGE) /bin/sh
+

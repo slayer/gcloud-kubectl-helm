@@ -10,7 +10,7 @@ ENV HOME=/ \
 # Install required packages
 # Install envsubst [better than using 'sed' for yaml substitutions]
 RUN apk --update add ca-certificates wget python curl tar \
-          jq git bash openssl $RUNTIME_DEPS && \
+          jq git bash openssl openssh-client $RUNTIME_DEPS && \
     apk add --virtual build_deps $BUILD_DEPS && \
     cp /usr/bin/envsubst /usr/local/bin/envsubst && \
     apk del build_deps
